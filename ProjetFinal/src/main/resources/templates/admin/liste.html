@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout/default}">
+
+<head>
+
+	<title>Utilisateurs</title>
+</head>
+
+<body>
+
+    	<div sec:authorize ="isAuthenticated()">
+		Bienvenue <span sec:authentication="name"></span>:<span sec:authentication="authorities"></span>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Déconnexion">
+	</form>
+</div>
+	<section layout:fragment="contenu">
+	<h1>Tickets</h1>
+	<table class="table">
+		<thead class="table-dark">
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Description</th>
+				<th scope="col">Urgence</th>
+				<th scope="col">Environnement</th>
+				<th scope="col">Logiciel</th>
+				<th scope="col">Statut</th>
+				<th scope="col">Client</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="b:${bugs}">
+				<th scope="row" th:text="${b.id}">Id</th>
+				<td th:text="${b.description}">Description</td>
+				<td th:text="${b.urgence}">Description</td>
+				<td th:text="${b.envE}">Description</td>
+				<td th:text="${b.logiciel}">Description</td>
+				<td th:text="${b.statut}">Description</td>
+				<td th:text="${b.client.login}">Description</td>
+				<td> <a th:href="@{/mvc/admins/{id}(id=${b.id})}" class="btn btn-success" />Attribuer
+				</td>
+			
+			</tr>
+		</tbody>
+	</table>
+
+</section>
+</body>
+
+</html>

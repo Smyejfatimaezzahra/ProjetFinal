@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Les Tickts</title>
+</head>
+
+<body>
+	<h1>Les Tickts</h1>
+	<a th:href="@{/mvc/clients/add}">Ajouter</a>
+	<table class="table">
+		<thead class="table-dark">
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Description</th>
+				<th scope="col">Urgence</th>
+				<th scope="col">Environnement</th>
+				<th scope="col">Logiciel</th>
+				<th scope="col">Statut</th>
+				<th scope="col">Client</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="b:${bugs}">
+				<th scope="row" th:text="${b.id}">Id</th>
+				<td th:text="${b.description}">Description</td>
+				<td th:text="${b.urgence}">Urgence</td>
+				<td th:text="${b.envE}">Environnement</td>
+				<td th:text="${b.logiciel}">Logiciel</td>
+				<td th:text="${b.statut}">Statut</td>
+				<td th:text="${b.client.login}">Client</td>
+			
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>
+</body>
+
+</html>
