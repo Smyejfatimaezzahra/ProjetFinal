@@ -23,15 +23,21 @@
 </head>
 
 <body>
+     <div class="container m-5 ">
 	<form th:action="@{/mvc/admins/attribuer}" th:object="${ticket}" method="get">
-		Id: <input readonly type="number" name="idT" th:value="${ticket.id}" />
-		Description:<input readonly type="text" th:field="*{description}" />
-        Logiciel <input readonly type="text"  th:field="*{logiciel}" />
-        Statut<input readonly type="text"  th:field="*{statut}" />
-        Developpeur <select  name="idD"  >	
+	<div class="form-group">
+		Id: <input readonly type="number"  class="form-control" name="idT" th:value="${ticket.id}" />
+		Description:<input class="form-control"  readonly type="text" th:field="*{description}" />
+        Logiciel <input class="form-control"  readonly type="text"  th:field="*{logiciel}" />
+        Statut<input class="form-control"  readonly type="text"  th:field="*{statut}" />
+        Developpeur <select class="form-control"  name="idD"  >	
          <option th:each="d:${devs}" th:value="${d.id}" th:text="${d.login}"/>
          </select>
-		<button type="submit">Attribuer</button></form>
+         </div>
+		<button class="mt-2 btn btn-dark" type="submit">Attribuer</button></form>
+		
+		 
+		 </div>
 </body>
 
 </html>

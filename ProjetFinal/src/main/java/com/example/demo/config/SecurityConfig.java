@@ -59,6 +59,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logout()
 				.clearAuthentication(true).invalidateHttpSession(true)
 				;
+		http
+	    .formLogin(formLogin -> formLogin
+	        .successHandler(new CustomAuthenticationSuccessHandler())
+	    );
 		
 	}
 	

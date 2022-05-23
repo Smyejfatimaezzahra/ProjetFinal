@@ -23,15 +23,20 @@
 </head>
 
 <body>
+<div class="container m-5 ">
 	<form th:action="@{/mvc/devs/}" th:object="${t}" method="post">
+	<div class="form-group">
         id <input type="text"  name="id" th:field="*{id}" readonly hidden/>
-		description: <input type="text"  name="description" th:field="*{description}" readonly/>
-        Urgence: <input type="text"    name="urgence" th:field="*{urgence}" readonly/>
-	    logiciel<input type="text" name="logiciel" th:field="*{logiciel}" readonly/>
-	   Environnement<input type="text"  name="envE" th:field="*{envE}" readonly />
-       description: <input type="text"  name="dev" th:field="*{dev}" readonly/>
-       statut<input type="text"  name="statut" th:field="*{statut}" required />
-		<button type="submit">Enregistrer</button></form>
+		description: <input type="text"  class="form-control" name="description" th:field="*{description}" readonly/>
+        Urgence: <input class="form-control" type="text"    name="urgence" th:field="*{urgence}" readonly/>
+	    logiciel<input class="form-control" type="text" name="logiciel" th:field="*{logiciel}" readonly/>
+	   Environnement<input class="form-control" type="text"  name="envE" th:field="*{envE}" readonly />
+       description: <input class="form-control" type="text"  name="dev" th:field="*{dev}" readonly/>
+       statut<input type="text" class="form-control"  name="statut" th:field="*{statut}" required />
+		<button class="mt-2 btn btn-dark" type="submit">Enregistrer</button></form>
+		
+		 </div>
+		 </div>
 </body>
 
 </html>
