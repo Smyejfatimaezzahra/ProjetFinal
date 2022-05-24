@@ -8,6 +8,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Client extends User {
+
+	public Client(String login, String password) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Client() {
+		// TODO Auto-generated constructor stub
+	}
 	
     
 

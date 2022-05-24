@@ -17,9 +17,9 @@
 	   <div class=" row m-2 "sec:authorize ="isAuthenticated()">
 	<div class="col-3">	 <span sec:authentication="name"></span><span sec:authentication="authorities"></span></div>
 	<form class="col-6" th:action="@{/logout}" method="post">
-		<input type="submit" class="btn btn-info " value="Déconnexion">
+		<button type="submit" class="btn btn-info " ><i class="fa fa-sign-out" aria-hidden="true"></i></button>
 	</form>
-	<div class="col-2"> <a  th:href="@{/mvc/clients/add}" class="btn btn-info  ">Ajout</a></div>
+	<div class="col-2"> <a  th:href="@{/mvc/clients/add}" class="btn btn-info  "><i class="fa-solid fa-plus"></i></a></div>
 </div>
 	<table class="table table-bordered">
 		<thead class="table-dark ">

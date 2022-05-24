@@ -8,11 +8,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.beans.Administrateur;
+import com.example.demo.beans.Developpeur;
 import com.example.demo.beans.Ticket;
 import com.example.demo.beans.User;
 import com.example.demo.service.AdminService;
@@ -55,5 +58,22 @@ public class AdminRController {
 		return "redirect:/mvc/admins/";
 	}
 	
-	
+   @GetMapping("/add")
+	public String addUser(Model m) {
+	   String role="";
+		m.addAttribute("user", new User());
+		return "user";
+	}
+   @PostMapping("/add")
+  	public String enrgUser(@ModelAttribute("user") User user,@RequestParam(value="role")String role) {
+	   if(role.equals("administrateur")) {
+		   Administrateur a=new Administrateur(user.getLogin(),user.getPassword());
+		   us.createUser(a);
+	   }
+	   else {
+		   Developpeur d=new Developpeur(user.getLogin(),user.getPassword());
+		   us.createUser(d);
+	   }
+  		return "redirect:/mvc/admins/";
+  	}
 }

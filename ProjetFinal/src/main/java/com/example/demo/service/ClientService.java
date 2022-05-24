@@ -29,6 +29,7 @@ public class ClientService {
 	}
    
 	public void creerTikcet(Ticket t) {
+		t.setStatut("enAttente");
 		tr.save(t);
 		
 	}

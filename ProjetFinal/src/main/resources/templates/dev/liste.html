@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/dc522288eb.js" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/dc522288eb.js" crossorigin="anonymous"></script>
 	<title>Ticket</title>
 </head>
 
@@ -16,7 +17,7 @@
     <div class=" m-2  "sec:authorize ="isAuthenticated()">
 		 <span sec:authentication="name"></span><span sec:authentication="authorities"></span>
 	<form th:action="@{/logout}" method="post">
-		<input type="submit" class="btn btn-info  " value="Déconnexion">
+	<button type="submit" class="btn btn-info " ><i class="fa fa-sign-out" aria-hidden="true"></i></button>
 	</form>
 </div>
      
@@ -44,7 +45,7 @@
 				<td th:text="${b.logiciel}"></td>
 				<td th:text="${b.statut}"></td>
 				<td th:text="${b.client.login}"></td>
-			    <td> <a th:href="@{/mvc/devs/edit/{id}(id=${b.id})}" class="btn btn-dark" />modifier
+			    <td> <a th:href="@{/mvc/devs/edit/{id}(id=${b.id})}" class="btn btn-dark" /><i class="fas fa-edit"></i>
 				</td>
 			</tr>
 		</tbody>

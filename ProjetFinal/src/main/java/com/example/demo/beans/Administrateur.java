@@ -13,6 +13,14 @@ public class Administrateur extends User{
 	@ManyToMany
 	private List<Ticket> tickets;
 	
+	public Administrateur() {
+		
+	}
+	public Administrateur(String login, String password) {
+		this.login=login;
+		this.password=password;
+	}
+
 	public List<Ticket> getTickets() {
 		return tickets;
 	}

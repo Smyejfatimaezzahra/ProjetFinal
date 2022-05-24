@@ -13,11 +13,13 @@
      <div class="container m-5 ">
         <h1>Liste des Tickets</h1>
         <div class="card-body">
-    <div class=" m-2  "sec:authorize ="isAuthenticated()">
-		 <span sec:authentication="name"></span><span sec:authentication="authorities"></span>
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" class="btn btn-info  " value="Déconnexion">
+	 
+	   <div class=" row m-2 "sec:authorize ="isAuthenticated()">
+	<div class="col-3">	 <span sec:authentication="name"></span><span sec:authentication="authorities"></span></div>
+	<form class="col-6" th:action="@{/logout}" method="post">
+		<button type="submit" class="btn btn-info " ><i class="fa fa-sign-out" aria-hidden="true"></i></button>
 	</form>
+	<div class="col-2"> <a  th:href="@{/mvc/admins/add}" class="btn btn-info  "><i class="fa-solid fa-user"></i></a></div>
 </div>
      
 	<section layout:fragment="contenu">
@@ -44,7 +46,7 @@
 				<td th:text="${b.logiciel}">Description</td>
 				<td th:text="${b.statut}">Description</td>
 				<td th:text="${b.client.login}">Description</td>
-				<td> <a th:href="@{/mvc/admins/{id}(id=${b.id})}" class="btn btn-dark " />Attribuer
+				<td> <a th:href="@{/mvc/admins/{id}(id=${b.id})}" class="btn btn-dark " /><i class="fa-solid fa-check"></i>
 				</td>
 			
 			</tr>
